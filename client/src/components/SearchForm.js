@@ -1,15 +1,14 @@
 import React from 'react';
 
-export default SearchForm() {
-    let titleArg = "";
-    let authorArg = "";
+export default SearchForm(props) {
     return(
         <section id="search-form">
-            <form>
-                <input type="text" name="title" placeholder="Search by the Title" value={titleArg} />
-                <input type="text" name="author" placeholder="Search by the Author" value={authorArg} />
-                <button type="submit" id="search">Search</button> 
+            <form>                 
+                <Input onChange={props.handleInputChange} name="title" placeholder="Search by title" />
+                <Input onChange={props.handleInputChange} name="author" placeholder="Search by author" />
+                <Btn name="search" disabled={props.both ? true : false} onClick={props.handleFormSubmit}/>
             </form>
         </section>
     );
 }
+
