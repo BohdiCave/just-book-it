@@ -1,12 +1,11 @@
 import React from 'react';
 
-export default SearchForm(props) {
+export default function SearchForm({input}) {
     return(
         <section id="search-form">
             <form>                 
-                <Input onChange={props.handleInputChange} name="title" placeholder="Search by title" />
-                <Input onChange={props.handleInputChange} name="author" placeholder="Search by author" />
-                <Btn name="search" disabled={props.both ? true : false} onClick={props.handleFormSubmit}/>
+                <input onChange={input} name="title" placeholder="Search by title" />
+                <input onChange={input} name="author" placeholder="Search by author" />
             </form>
         </section>
     );

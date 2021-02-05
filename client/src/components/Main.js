@@ -9,9 +9,9 @@ export default function Main(props) {
 
     return(
         <>
-        {address==="/" || address==="/books" 
-        && <SearchForm {...props}/>}
-        <SearchResults deleteBook={props.deleteBook} />
+        {(address==="/" || address==="/books") 
+        && <SearchForm input={props.input}/>}
+        <SearchResults {...props} />
         </>
     );
 }

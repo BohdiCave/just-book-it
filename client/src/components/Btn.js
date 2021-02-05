@@ -1,18 +1,15 @@
 import React from "react";
 
-export default function Btn({name, ...props}) {
+export default function Btn(props) {
   return (
     <>
-    {name==="save" ?
-      (<span className={name} {...props} role="button" aria-label="save" tabIndex="0">
+    {props.name==="save" ?
+      (<span className={props.name} onClick={props.action} {...props} role="img" aria-label="save-button" tabIndex="0">
         💾  
       </span>)
-    : name==="delete" ? 
-      (<span className={name} {...props} role="button" aria-label="delete" tabIndex="0">
+    : props.name==="delete" && 
+      (<span className={props.name} onClick={props.action} role="img" aria-label="delete-button" tabIndex="0">
         ❌
-      </span>)
-    : (<span className={name} {...props} role="button" aria-label="search" tabIndex="0">
-        🔍
       </span>)
     }
     </>
