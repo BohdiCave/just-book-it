@@ -1,33 +1,14 @@
-const db = require("../models");
+const router = require("express").Router();
+const booksController = require("../controllers/booksController");
 
-// Defining methods for the booksController
-const dbMethods = {
-    read: function(req, res) {
-        db.Book
-            .find(req.query)
-            .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-        },
-    readID: function(req, res) {
-        db.Book
-            .findById(req.params.id)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-        },
-    cre: function(req, res) {
-        db.Book
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-        },
-    del: function(req, res) {
-        db.Book
-            .findById({ _id: req.params.id })
-            .then(dbModel => dbModel.remove())
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-        }
-}
+router
+  .route("/api/books")
+  .get(booksController.read)
+  .post(booksController.cre);
 
-module.exports = dbMethods;
+router
+  .route("/api/books/:id")
+  .get(booksController.readID)
+  .delete(booksController.del);
+
+module.exports = router;

@@ -1,5 +1,4 @@
 const express = require("express");
-const router = require("express").Router();
 const app = express();
 const routes = require("./routes/api")
 const path = require("path");
@@ -15,19 +14,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-// Matches with "/api/books"
-router.route("/books")
-  .get(routes.read)
-  .post(routes.cre);
-
-// Matches with "/api/books/:id"
-router
-  .route("/books/:id")
-  .get(routes.readID)
-  .delete(routes.del);
+app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // Send every other request to the React app
 // Define any API routes before this runs

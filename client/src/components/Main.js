@@ -9,7 +9,7 @@ export default function Main(props) {
 
     return(
         <>
-        {(address==="/" || address==="/books") 
+        {address==="/" 
         && <SearchForm input={props.input}/>}
         <SearchResults {...props} />
         </>

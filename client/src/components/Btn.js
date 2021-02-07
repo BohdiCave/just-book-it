@@ -1,14 +1,18 @@
 import React from "react";
+import {useLocation} from "react-router-dom";
 
 export default function Btn(props) {
+  const location = useLocation();
+  const address = location.pathname;
+
   return (
     <>
-    {props.name==="save" ?
-      (<span className={props.name} onClick={props.action} {...props} role="img" aria-label="save-button" tabIndex="0">
+    {address==="/" || address==="/books" ?
+      (<span id={props.id} className={props.name} onClick={props.action} role="img" aria-label="save-button" tabIndex="0">
         💾  
       </span>)
-    : props.name==="delete" && 
-      (<span className={props.name} onClick={props.action} role="img" aria-label="delete-button" tabIndex="0">
+    : address==="/saved" && 
+      (<span id={props.id} className={props.name} onClick={props.action} role="img" aria-label="delete-button" tabIndex="0">
         ❌
       </span>)
     }

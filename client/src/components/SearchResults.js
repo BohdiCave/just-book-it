@@ -1,17 +1,23 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom';
 import Card from './Card';
 
 export default function SearchResults(props) {
-    const books = props.books;
+    const location = useLocation();
+    const address = location.pathname;
+    
+    const books = props.books || props.savedBooks;
+    
     return(
         <section id="search-results">
             {books.length ? 
                 (books.map(book => 
-                    <Card key={book._id} 
+                    <Card key={book._id}
+                        id={book._id} 
                         title={book.title}
                         authors={book.authors}
                         description={book.description}
-                        imageURL={book.imageURL}
+                        image={book.image}
                         link={book.link}
                         save={props.save}
                         delete={props.delete}
