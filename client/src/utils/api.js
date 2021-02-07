@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
 const APIKEY = `&printType=books&key=${process.env.REACT_APP_GB_API_KEY}`;  
 
-export default API = {
+export default {
   // Gets results from Google Books
   getGB: search => axios.get(BASEURL + search + APIKEY),
   // Get all books from DB
