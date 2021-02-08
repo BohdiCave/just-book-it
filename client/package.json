@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Mern Demo",
   "private": true,
+  "homepage" : "https://stark-island-86648.herokuapp.com/",
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.21.1",

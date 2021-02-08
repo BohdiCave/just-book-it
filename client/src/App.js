@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path={["/"]}>
+          <Route exact path="/">
             <Search />
           </Route>
           <Route exact path="/saved">

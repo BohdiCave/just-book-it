@@ -1,29 +1,27 @@
-# Create React Express App
+# Just Book It - a full-stack MERN App
 
-## About This Boilerplate
+This app is a Node/Express/MongoDB/React app deployed to Heroku. It makes a call to Google Books API and allows users to search that API based on the "title" and "author" fields.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+In the development phase, the front-end React auto-reloads as it's updated via webpack dev server, and the backend Express app auto-reloads independently with nodemon ("concurrently" dev dependency). Once deployed to Heroku, the app is connected to the GitHub repository and automatically rebuilds the app upon every new push to GitHub.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Features used
 
-## Starting the app locally
+### Frontend
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+- React components and pages, routed by react-router-dom
+- React UseState and UseEffect hooks
+- Custom UseDebounce hook - to prevent excessive calls to Google Books API as users input search terms
+- Protected API key using .env
 
-```
-npm install
-```
+### Backend
 
-This should install node modules within the server and the client folder.
+- MVC architecture
+- Client (react app as 'views') and Server (as 'models' and 'controllers' with routes) folder structure
+- MongoDB with mongoose.js (deployed on MongoDB Atlas)
+- Server falls back to React app if no API routes are hit upon
 
-After both installations complete, run the following command in your terminal:
+### Screenshots
 
-```
-npm start
-```
+![Screenshot 1](./client/public/assets/screen1.png)
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+![Screenshot 2](./client/public/assets/screen2.png)
