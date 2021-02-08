@@ -4,6 +4,7 @@
   "description": "Mern Demo",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "homepage": "https://stark-island-86648.herokuapp.com/",
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^16.13.1",
