@@ -1,5 +1,7 @@
 # Just Book It - a full-stack MERN App
 
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+
 This app is a Node/Express/MongoDB/React app deployed to Heroku. It makes a call to Google Books API and allows users to search that API based on the "title" and "author" fields.
 
 In the development phase, the front-end React auto-reloads as it's updated via webpack dev server, and the backend Express app auto-reloads independently with nodemon ("concurrently" dev dependency). Once deployed to Heroku, the app is connected to the GitHub repository and automatically rebuilds the app upon every new push to GitHub.
